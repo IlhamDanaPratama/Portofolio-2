@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - 2</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">PORTOFOLIO - 2</h1>
+        <div class="project">
+            <h2>Rancang Bangun Microwave Otomatis Berbasis IoT Menggunakan ESP8266</h2>
+            <p>Tools: CorelDraw, Arduino IDE, Fritzing, Microsoft Excel</p>
+            <p>Description: Project ini menggunakan ESP8266 sebagai microcontroller, menggunakan heater AC 220V sebagai pemanas oven dengan kapasitas 1000W 2 buah. Sistem kerja dari prototype ini, setelah disetting suhu dan waktu maka heater akan aktif dengan bantuan relay sehingga memanaskan sesuai dengan setpoint. Suhu akan selalu terjaga dengan bantuan sensor DHT22 yang terpasang didalam oven, ketika setpoint waktu sudah habis maka oven akan berhenti secara otomatis dan buzzer akan menyala selama 5 detik. Proses tersebut akan dimonitoring menggunakan aplikasi Blynk IoT.</p>
+
+            <!-- Tahap 1 -->
+            <div class="image-section">
+                <div class="description fadeIn">
+                    <p><strong>Menentukan Sistem Kerja Yang Divisualisasikan Menggunakan Flowchart:</strong> Pada tahap awal, saya membuat flowchart untuk menggambarkan alur kerja dari sistem microwave otomatis ini. Flowchart ini memetakan seluruh proses mulai dari input pengguna untuk pengaturan suhu dan waktu, aktivasi relay untuk menghidupkan heater, monitoring suhu secara real-time, hingga penghentian heater dan pemberitahuan menggunakan buzzer saat proses selesai. Visualisasi ini menjadi panduan utama dalam pengembangan perangkat lunak dan perangkat keras.</p>
+                </div>
+                <img src="flowchart.png" alt="Menentukan Sistem Kerja Yang Divisualisasikan Menggunakan Flowchart" class="fadeIn">
+            </div>
+
+            <!-- Tahap 2 -->
+            <div class="image-section reverse">
+                <div class="description fadeIn">
+                    <p><strong>Membuat Script Prototype Menggunakan Arduino IDE:</strong> Tahap ini melibatkan pembuatan kode program menggunakan Arduino IDE untuk mengendalikan fungsi utama microwave otomatis. Kode ini meliputi pengaturan suhu dan waktu menggunakan input dari pengguna, pengontrolan relay untuk mengaktifkan heater, serta membaca data dari sensor DHT22 untuk memantau suhu di dalam microwave. Script juga mengelola komunikasi dengan aplikasi Blynk IoT untuk monitoring jarak jauh, serta mengendalikan buzzer sebagai notifikasi akhir proses.</p>
+                </div>
+                <img src="ide.png" alt="Membuat Script Prototype Menggunakan Arduino IDE" class="fadeIn">
+            </div>
+
+            <!-- Tahap 3 -->
+            <div class="image-section">
+                <div class="description fadeIn">
+                    <p><strong>Desain Rangkaian Elektronika Menggunakan Fritzing:</strong> Pada tahap ini, saya membuat diagram rangkaian elektronik menggunakan Fritzing. Rangkaian ini mencakup koneksi antara ESP8266 sebagai mikrokontroler, relay untuk mengontrol heater, sensor DHT22 untuk pengukuran suhu, serta komponen pendukung lainnya seperti sumber daya dan buzzer. Diagram ini digunakan untuk memastikan semua komponen terhubung dengan benar dan bekerja sesuai dengan desain sistem.</p>
+                </div>
+                <img src="porto4.png" alt="Desain Rangkaian Elektronika Menggunakan Fritzing" class="fadeIn">
+            </div>
+
+            <!-- Tahap 4 -->
+            <div class="image-section reverse">
+                <div class="description fadeIn">
+                    <p><strong>Desain Dashboard Menggunakan Cloud Blynk IoT Dan Blynk Mobile:</strong> Pada tahap ini, saya merancang dashboard di Blynk IoT yang berfungsi untuk monitoring dan kontrol microwave otomatis secara real-time. Dashboard ini memungkinkan pengguna untuk melihat suhu di dalam oven, mengatur timer, serta mengaktifkan atau menonaktifkan oven dari jarak jauh melalui aplikasi Blynk di perangkat mobile. Dua gambar yang ditampilkan menunjukkan tampilan dashboard di platform Blynk IoT dan aplikasi Blynk di smartphone, yang memberikan akses kontrol yang mudah dan praktis.</p>
+                </div>
+                <img src="oven.jpg" alt="Desain Dashboard Menggunakan Cloud Blynk IoT" class="fadeIn">
+            </div>
+
+            <!-- Tahap 5 -->
+            <div class="image-section portrait">
+                <div class="description fadeIn">
+                    <p><strong>Tampilan Pengujian Microwave Otomatis Blynk Mobile:</strong> Tahap ini adalah pengujian akhir di mana microwave otomatis diuji secara langsung dengan menggunakan aplikasi Blynk di perangkat mobile. Saya memverifikasi bahwa seluruh fungsi mulai dari pengaturan suhu, waktu, aktivasi heater, hingga notifikasi buzzer berfungsi dengan baik. Selain itu, saya memastikan bahwa komunikasi antara perangkat dan aplikasi berjalan lancar tanpa ada keterlambatan. Gambar yang ditampilkan menunjukkan hasil pengujian ini dengan monitoring suhu secara real-time melalui aplikasi Blynk.</p>
+                </div>
+                <img src="blynk.jpg" alt="Desain Dashboard Menggunakan Cloud Blynk IoT" class="fadeIn">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Image Zoom -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var imgs = document.querySelectorAll(".image-section img");
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+
+        imgs.forEach(function(img) {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+                modalImg.style.width = "auto";
+                modalImg.style.height = "auto";
+                modalImg.style.maxWidth = "90%";
+                modalImg.style.maxHeight = "90%";
+            }
+        });
+
+        document.querySelector(".close").onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
